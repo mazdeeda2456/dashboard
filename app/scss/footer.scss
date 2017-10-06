@@ -1,0 +1,109 @@
+    .footer {
+        @include flex-display(flex,space-between); 
+        margin-bottom: 10px;
+    }
+
+    .footer-item {
+        max-width: 340px;
+    }
+
+    .footer-item {
+        > div{
+            padding-bottom: 15px;
+        }
+    }
+
+    .footer-item-option-1 {
+        padding-right: 7%;
+    }
+
+    .footer-item-option-2 {        
+        @include footer-item(0% 10% 0% 4%,1px solid $alternative-grey);
+    }
+    .footer-item-option-3 {
+         @include footer-item(0% 6% 0% 4%,1px solid $alternative-grey);
+    }
+    .footer-item-title {
+        @include font($footer-grey,$footer-alternative-grey,28px);
+        max-width: 236px;
+        text-align: left;
+    }
+    .footer-item-description {
+        @include font($alternative-font,$footer-grey,14.99px);
+        max-width: 236px;
+    }
+    .footer-btn {
+        @include font($primary-font,$footer-alternative-grey,16px);
+        max-width: 111px;
+        padding: 7px 10px;
+        margin-right: 10px;
+        border-radius: 5px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: $footer-border-grey;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        background-color: rgba(255, 255, 255, 0);
+        margin-bottom: 5px;
+        cursor: pointer;
+        > span{
+            padding-right:  5px;
+        }
+        
+        
+    }
+    .footer-btn-content{
+        display: flex;
+        align-items: center;
+        > span{
+            padding:0px 5px;
+            display: -webkit-box;
+        }
+        svg{
+            display: -webkit-box;
+        }
+    }
+    .footer-logo-android {
+        @include size(20px,20px);
+        fill: $footer-alternative-grey;
+    }
+    .footer-logo-ios {
+        @include size(20px,20px);
+        padding-bottom: 1px;
+        fill: $footer-alternative-grey;
+    }
+    .arrow-right-logo{
+        padding: 5px 0px 0px 0px !important;
+    }
+
+    //responsive
+    @mixin footer-items($p){
+        padding: $p;
+        border-left: none;
+        text-align: center;
+    }
+    @media screen and (max-width: 770px) {
+        .footer{
+            display: block;
+        }
+        .footer-item-description, .footer-item-title{
+            text-align: center;
+            max-width: 100%;
+        }
+        .footer-item-option-1 {
+            @include footer-items(0px 10% 30px 10%);
+            border-bottom: 1px solid $alternative-grey;
+        }
+        .footer-item {
+            max-width: auto;
+            margin: 0 auto;
+        }
+        .footer-item-option-2{
+            @include footer-items(24px 10% 30px 10%);
+            border-bottom: 1px solid $alternative-grey;
+        }
+        .footer-item-option-3{
+        @include footer-items(24px 10% 5px 10%);
+        }
+    }

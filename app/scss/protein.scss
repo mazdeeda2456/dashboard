@@ -1,0 +1,79 @@
+    .protein {
+        @extend .flex-display;
+    }
+
+    .protein-icon {
+        @extend .flex-display;
+        > div{
+             padding-left: 6px;
+             &:nth-child(4){
+                padding-left: 10px;
+                padding-bottom: 3px;
+             }
+             &:last-of-type{
+                padding-left: 6px;
+                padding-bottom: 6px;
+             }
+            cursor: pointer;
+        }
+        
+    }
+    
+    .protein-option-1 {
+        > svg{
+            @include size(32px,25px);
+            &:hover{
+                path{
+                    fill: $orange !important;
+                }     
+            }
+        }
+    }
+    
+    .protein-option-1 {
+        &:nth-child(1){
+            padding-left: 0px;
+        }
+    }
+
+    .protein-option-2 {
+        position: relative;
+        @include size(35px,26px);
+        > svg{
+            position: absolute;
+             @include size(35px,26px);
+        }
+        &:hover{
+            svg{
+                display: none;
+                &:nth-child(1){
+                    path{
+                        fill: $orange;
+                    }   
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .protein-option-2 svg:last-child {
+        padding: 1.5px 0px 0px 1.5px;
+    }
+
+    .protein-option-svg-active {
+        fill: $green;
+    }
+
+    .protein-option-svg-inactive{
+        fill: $grey;
+    }
+    .protein-option-1-svg{
+        g{
+            transform: translate(0px, 25px) scale(0.100000, -0.100000);
+        }
+    }
+    .protein-option-2-svg{
+        g{
+             transform: translate(3px, 23px) scale(0.100000, -0.100000);
+        }
+    }

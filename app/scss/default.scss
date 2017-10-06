@@ -1,0 +1,157 @@
+    //default-browser-set
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed, 
+    figure, figcaption, footer, header, hgroup, 
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure, 
+    footer, header, hgroup, menu, nav, section {
+        display: block;
+    }
+    body {
+        line-height: 1;
+    }
+    blockquote, q {
+        quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+    //font-styles
+    $primary-font: HelveticaNeueLTStd;
+    $alternative-font: Arial;
+    //theme-colors
+    $default-color: #F9F9F9;
+    $orange: #ff801a;
+    $grey-bright:#DBDBDB;
+    $grey: #bdbdbd;
+    $alternative-grey: #bababa;
+    $dark-grey: #7c7c7c;
+    $footer-grey: #828282;
+    $footer-alternative-grey: #a4a4a4;
+    $footer-border-grey: #b8b8b8;
+    $table-rotate-color: #c2c2c2;
+    $white: #ffffff;
+    $green: #adbb0c;
+    //shared-content
+    .flex-display{
+        display: flex;
+        align-items: center;
+    }
+    @mixin flex-display ($display, $content){
+        display: $display;
+        justify-content: $content;
+    }
+    @mixin size($width, $height){
+        width: $width;
+        height: $height;
+    }
+    @mixin font($font, $color, $fontsize ){
+         font-family: $font;
+         color: $color;
+         font-size: $fontsize 
+    }
+    .title-default{
+        font-family: $primary-font;
+        color: $grey;
+        font-size: 9.01px;
+        line-height: 5.08px;
+        padding-bottom: 9px;
+    }
+    .header-default-font{
+        font-family: $primary-font;
+        color: $dark-grey;
+    }
+    @mixin footer-item($p, $b){
+        padding: $p;
+        border-left: $b;
+    }
+    .chevron::before {
+	    border-style: solid;
+	    content: '';
+	    display: inline-block;
+	    left: 0.15em;
+	    position: relative;
+	    top: 0.15em;
+	    transform: rotate(-45deg);
+        vertical-align: top;
+        border-width: 0.10em 0.10em 0 0;
+        height: 0.40em;
+       	width: 0.40em;
+    }
+    .chevron.left:before {
+	    left: 0.25em;
+	    transform: rotate(-135deg);
+    }
+    .chevron.right:before {
+	    left: 0;
+	    transform: rotate(45deg);
+    }  
+    //Grid-style
+    body{
+        margin: 0px;
+        background-color: $default-color;
+    }
+    .container{
+        margin: 0 auto;
+        max-width: 990px;
+        overflow: hidden;
+    }
+    //Dashboard-option-row
+    .container-dashboard-options{
+        padding-top: 1px;
+        @include flex-display(flex, space-between);
+         margin-bottom: 30px;
+    }
+    .item-display-row{
+        flex: 1;
+        padding-top: 3px;
+    }
+    //Dashboard-option-responsive
+    @mixin item-display-row($f,$pt){
+        display: flex;
+        justify-content: center;
+        flex : $f;
+         padding-top: $pt
+    }
+    @media screen and (max-width: 770px) {
+        .container-dashboard-options{
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .week-progress{
+            @include item-display-row(1 auto,3px);
+        }
+        .protein{
+            @include item-display-row(1 auto,3px);
+        }
+        .slider{
+            @include item-display-row(0 0 100%,30px);
+            order: 2;
+        }
+        .title-default{
+            margin-top: 30px;
+            text-align: center;
+        }
+        .header{
+            margin-bottom: 0px;
+        }
+    }

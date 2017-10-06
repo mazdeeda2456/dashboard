@@ -1,0 +1,84 @@
+    .progress {
+        min-width: 236px;
+        list-style: none;
+        display: flex;
+        margin: 0px 0px 0px -3px;
+        padding: 0px;
+        li{
+            flex-grow: 1;
+            float: left;
+            text-align: center;
+            position: relative;
+        }
+        .name{
+            font-family: $primary-font;
+            color:  $grey;
+            font-size: 9.01px;
+            line-height: 5.08px;
+            display: block;
+            margin-top: 7px;
+        }
+        .step{
+            @include size(10px,10px);
+            background-color: $grey;
+            border-radius: 50%;
+            display: inline-block;
+            &:after{
+                @extend  .default-step;
+            }
+        }
+        .active{
+            .step{
+                background-color:  $white;
+                @include size(8px,8px);
+                border: 1.5px solid $grey;
+            }
+        }
+        .done{
+            .step{
+                background-color: $green;
+                &:before{
+                    background-color: $green;
+                }
+                &:after{
+                    background-color: $green;
+                }
+            }
+            &.last{
+                .step{
+                    &:after{
+                        background-color: $grey;
+                    }
+                }
+            }
+        }
+    }
+    .week-progress{
+        @extend .flex-display;
+    }
+    .default-step{
+        content: "";
+        background-color: $grey;
+        @include size(50%, 3px);
+        position: absolute;
+        bottom: 18px;
+        right: 0;
+        z-index: -1;
+    }
+    .progress .step:before {
+        content: "";
+        background-color: $grey;
+        @include size(50%, 3px);
+        position: absolute;
+        bottom: 18px;
+        left: 0;
+        z-index: -1;
+    }
+
+    .progress li:first-of-type .step:before {
+        display: none;
+    }
+
+    .progress li:last-of-type .step:after {
+        display: none;
+    }

@@ -1,0 +1,168 @@
+// table
+    .default-item-them{
+        background-image: url(../app/images/chevron-up.png);
+        background-size: 13px 7px;
+    }
+    .vetrical-display{
+        text-align: center;
+        vertical-align: middle;
+    }
+    table {
+        border-collapse: collapse;
+        margin-bottom: 55px;
+        width: 99.9%;
+        th{
+            @include font($primary-font, $green , 24px);
+            text-align: center;
+            font-weight: 700;
+            padding: 13px 0px;
+            border-right: 1px solid $alternative-grey;
+            background-color: #ffffff;
+            &:first-child{
+                @extend .default-item-them;
+                border-bottom: 0;
+                border-right: 0;
+                border-top-left-radius: 8px;
+            }
+            &:last-child{
+                border-right: 0;
+                border-top-left-radius: 8px;
+            }
+        }
+        tr{
+            td{
+                @include font($alternative-font, $footer-grey ,13.01px);
+                height: 90px;
+                max-width: 126px;
+                background-color: $white;
+                border-left: 1px solid $alternative-grey;
+                border-top: 1px solid $alternative-grey;
+                > div{
+                    display: flex;
+                    padding: 5px 0px 7px 7px;
+                }
+                > img{
+                    display: flex;
+                    margin: 0px 0px 0px 0px;
+                    height: 71%;
+                    min-width: 110px;
+                    margin: 0 auto;
+                }
+                &:first-child{
+                    @extend .default-item-them;
+                    border-left: 0;
+                    @extend .vetrical-display;
+                }
+                &:nth-of-type(2){
+                    border-left: 0;
+                }
+                svg {
+                    vertical-align: middle;
+                }
+                label{
+                    font-weight: bold;
+                }
+            }
+            &:nth-child(2){
+                td{
+                    &:first-child{
+                        border-top: 0px;
+                    }
+                }
+            }
+            &:nth-of-type(7){
+                td{
+                    height: auto;
+                    @extend .vetrical-display;
+                    padding: 1% 0%;
+                    border-top: 0;
+                    @extend .default-item-them;
+                    &:last-child{
+                        border-bottom-right-radius: 8px;
+                        border-bottom: 0px;
+                    }
+                    &:nth-of-type(2){
+                     border-left: 1px solid $alternative-grey;
+                    }
+                }
+            }
+            &:last-child{
+                td{
+                    @extend .default-item-them;
+                    height: auto;
+                    @extend .vetrical-display;
+                    border-bottom: 0px;
+                    &:first-child{
+                         border-bottom-left-radius: 8px;
+                    }
+                }
+            }
+        }
+    }
+    .babells-logo {
+        height: 31px;
+        width: 31px;
+    }
+    .checkmark-logo {
+        @include size(10px,10px);
+        padding-left: 4px;
+        padding-bottom: 3px;
+    }
+    .option-active {
+        fill: $orange;
+    }
+    .option-inactive {
+        fill: $footer-grey;
+    }
+
+    .transform-text {
+        vertical-align: middle;
+        padding-top: 11%;
+        position: relative;
+        div {
+            white-space: nowrap;
+            @include font($primary-font, $table-rotate-color ,35.01px);
+            transform: scaleY(1.0164) rotate(-90deg);
+        }
+        svg{
+            position: absolute;
+            left: 53px;
+            bottom: 14%;
+            fill: $table-rotate-color;
+            @include size(32px,32px);
+        }
+    }
+    .printer {
+        @include size(23px,27px );
+        fill: $alternative-grey;
+        &:hover{
+            fill: $orange;
+        }
+    }
+
+    .training-done {
+        @include flex-display(flex,space-between );
+        position: relative;
+        margin-right: 24px;
+    }
+
+    .training-done svg {
+        @include size(17px,16px);
+        position: absolute;
+        right: -17px;
+        top: 7px;
+    }
+
+    #play-icon {
+        @include size(8px,15px);
+    }
+
+    //responsive
+
+    @media screen and (max-width: 850px) {
+        table{
+            display: block;
+            overflow-x: scroll;    
+            overflow-y: hidden;    
+        }
+    }
